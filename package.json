@@ -1,0 +1,16 @@
+{
+  "name": "nexus-mobile-kit",
+  "version": "1.0.0",
+  "description": "Mobile-optimized React components with touch optimization and PWA detection",
+  "main": "index.js",
+  "keywords": ["react", "mobile", "touch", "pwa", "responsive", "nexus"],
+  "author": "Mattlk13",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mattlk13/nexus-mobile-kit"
+  },
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
+  }
+}
