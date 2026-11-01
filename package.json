@@ -3,7 +3,14 @@
   "version": "1.0.0",
   "description": "Mobile-optimized React components with touch optimization and PWA detection",
   "main": "index.js",
-  "keywords": ["react", "mobile", "touch", "pwa", "responsive", "nexus"],
+  "keywords": [
+    "react",
+    "mobile",
+    "touch",
+    "pwa",
+    "responsive",
+    "nexus"
+  ],
   "author": "Mattlk13",
   "license": "MIT",
   "repository": {
@@ -12,5 +19,8 @@
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs"
   }
 }
