@@ -2,8 +2,15 @@
   "name": "nexus-mobile-kit",
   "version": "1.0.0",
   "description": "Mobile-optimized React components with touch optimization and PWA detection",
-  "main": "index.js",
-  "keywords": ["react", "mobile", "touch", "pwa", "responsive", "nexus"],
+  "main": "./dist/index.cjs",
+  "keywords": [
+    "react",
+    "mobile",
+    "touch",
+    "pwa",
+    "responsive",
+    "nexus"
+  ],
   "author": "Mattlk13",
   "license": "MIT",
   "repository": {
@@ -12,5 +19,35 @@
   },
   "peerDependencies": {
     "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "npm run build && node --test tests/*.test.mjs",
+    "prepack": "npm run build"
+  },
+  "module": "./dist/index.mjs",
+  "exports": {
+    ".": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./index.js": {
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./features": "./features.mjs",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "features.mjs",
+    "README.md",
+    "LICENSE",
+    "INTEGRATION.md"
+  ],
+  "devDependencies": {
+    "esbuild": "0.28.2",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
   }
 }

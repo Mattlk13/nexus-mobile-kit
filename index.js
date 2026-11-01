@@ -10,53 +10,19 @@
  * - Responsive helpers
  */
 
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { detectFeatures } from './features.mjs';
 
 /**
  * Feature Detection Utilities
  */
-export const detectFeatures = () => {
-  if (typeof window === 'undefined') return {};
-  
-  return {
-    // Device type
-    isMobile: /iPhone|iPad|iPod|Android/i.test(navigator.userAgent),
-    isTablet: /iPad|Android/i.test(navigator.userAgent) && !/Mobile/i.test(navigator.userAgent),
-    isDesktop: !/iPhone|iPad|iPod|Android/i.test(navigator.userAgent),
-    
-    // Screen
-    isSmallScreen: window.innerWidth < 640,
-    isMediumScreen: window.innerWidth >= 640 && window.innerWidth < 1024,
-    isLargeScreen: window.innerWidth >= 1024,
-    
-    // Capabilities
-    hasTouch: 'ontouchstart' in window || navigator.maxTouchPoints > 0,
-    hasServiceWorker: 'serviceWorker' in navigator,
-    hasNotifications: 'Notification' in window,
-    hasGeolocation: 'geolocation' in navigator,
-    
-    // Network
-    isOnline: navigator.onLine,
-    connection: navigator.connection || navigator.mozConnection || navigator.webkitConnection,
-    
-    // Storage
-    hasLocalStorage: (() => {
-      try {
-        localStorage.setItem('test', 'test');
-        localStorage.removeItem('test');
-        return true;
-      } catch (e) {
-        return false;
-      }
-    })(),
-  };
-};
+export { detectFeatures } from './features.mjs';
 
 /**
  * Hook for responsive detection
  */
 export const useResponsive = () => {
-  const [features, setFeatures] = useState(detectFeatures());
+  const [features, setFeatures] = useState(detectFeatures);
   
   useEffect(() => {
     const handleResize = () => {
